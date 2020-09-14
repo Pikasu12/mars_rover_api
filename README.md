@@ -1,7 +1,7 @@
 # MARS ROVER API
 
 ## Overview
-This project will perform download and store images locally from [NASA API website](https://api.nasa.gov/).
+This project is written in Python3 will perform download and store images locally from [NASA API website](https://api.nasa.gov/).
 
 ## Instruction on running the program.
 ### We have 2 options to up and run the program.
@@ -14,18 +14,17 @@ This project will perform download and store images locally from [NASA API websi
 ```
 git clone https://github.com/Pikasu12/mars_rover_api.git
 cd mars_rover_api
-docker-compose up -d              <----- Building the image takes sometime depending on the speed of the internet. (Estimated time: 5mins - 10mins)
+docker-compose up              <----- Building the image takes sometime depending on the speed of the internet. (Estimated time: 5mins - 10mins)
 ```
 #### ***Note:*** *If the docker-compose is not yet install you can find the installation process [here](https://docs.docker.com/compose/install/)*
-#### - Once the deployment of the container is done. you can follow the logs of the program by performing the command below:
+#### - Once the downloading of image is done and  the container is exited. you can verify the images downloaded by executing the following command.
 ```
-docker logs -f backend
+docker commit $(docker ps -a|grep "backend"|awk '{print $1}') debug/backend   <--- We create new image from the exited image.
+docker run -it --rm --entrypoint sh debug/backend                             <--- Here we will run the newly created image that contains the downloaded image.
+cd images                                                                     <--- Go to the images directory and explore the images downloaded.
+exit
 ```
-#### - You can also check the downloaded image inside the container by performing the following command.
-```
-docker exec -it backend shell          <----- This is the command use to go inside the container file system.
-cd /usr/src/backend/images             <----- Go to this folder to see the images downloaded inside in their respective folder named by its date captured.
-```
+
 ### 2. Run and deploy locally using your prefered terminal.
 #### - First clone the program github repository: https://github.com/Pikasu12/mars_rover_api.git
 ```
