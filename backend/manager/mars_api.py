@@ -1,5 +1,5 @@
 import requests
-from utils import logger
+from utils.logger import logger
 import os
 
 class MarsPhoto():

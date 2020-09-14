@@ -2,6 +2,7 @@
 
 ## Overview
 This project will perform download and store images locally from [NASA API website](https://api.nasa.gov/).
+[https://github.com/Pikasu12/mars_rover_api.git](https://github.com/Pikasu12/mars_rover_api.git)
 
 ## Instruction on running the program.
 ### We have 2 options to up and run the program.
@@ -9,28 +10,47 @@ This project will perform download and store images locally from [NASA API websi
 ### 1. Run and deploy via docker container (Recommended).
 #### This option is only tested using the following linux flavors (Ubuntu, centos).
 #### ***Note:*** *Deployment in other operating systems such as Windows and Mac is not yet tested.*
-#### - First clone the program github repository: (https://github.com/Pikasu12/mars_rover_api.git)[https://github.com/Pikasu12/mars_rover_api.git]
+#### - First clone the program github repository: https://github.com/Pikasu12/mars_rover_api.git
 #### - Perform the following command.
 ```
+git clone https://github.com/Pikasu12/mars_rover_api.git
 cd mars_rover_api
-docker-compose up
+docker-compose up -d              <----- Building the image takes sometime depending on the speed of the internet. (Estimated time: 5mins - 10mins)
 ```
-#### ***Note:*** *If the docker-compose is not yet install you can find the installation process (here.)[https://docs.docker.com/compose/install/]*
-#### - Once the 
+#### ***Note:*** *If the docker-compose is not yet install you can find the installation process [here](https://docs.docker.com/compose/install/)*
+#### - Once the deployment of the container is done. you can follow the logs of the program by performing the command below:
+```
+docker logs -f backend
+```
+#### - You can also check the downloaded image inside the container by performing the following command.
+```
+docker exec -it backend shell          <----- This is the command use to go inside the container file system.
+cd /usr/src/backend/images             <----- Go to this folder to see the images downloaded inside in their respective folder named by its date captured.
+```
 ### 2. Run and deploy locally using your prefered terminal.
-#### This option required two terminal since we use 2 ports, 1 for our frontend written in React JS and 1 for the backend written in Python.
-
+#### - First clone the program github repository: https://github.com/Pikasu12/mars_rover_api.git
+```
+git clone https://github.com/Pikasu12/mars_rover_api.git 
+```
+#### Perform the following command to run the program.
+```
+apt-get install -y python3-venv           <---- To install virtual env library (Recommended)
+sudo python3 -m venv venv                 <---- to create your own virtual env. (Recommended)
+source venv/bin/activate                  <---- To activate the virtual env. (Recommended)
+cd mars_rover_api/backend                 <---- Go inside to the backend folder.
+pip install -r requirements.txt           <---- To install the needed library to run the program.
+python server.py
+```
+#### ***Note:*** *It may take sometime to download all the images. You can view the donwloaded images in this directory 'backend/image/<image_date>/<image_files>'*
 
 ## How to run unittest
-### Our unittest in python must run before deploying the program to ensure it's quality.
-### Follow the instructions below.
-#### 1. Go to the backend directory which our python package root is located.
-#### 2. You must ensure the nose2 is installed. *"Note: If you deploy the program via docker container this library is already installed"*
-#### 3. Perform the command below:
+### Our unittest in python must run before deploying the program to ensure it's quality, follow the instructions below.
+#### 1. Install the needed libraries. (This command is for ubuntu OS)
 ```
-nose2
+apt-get install -y python3-venv           <---- To install virtual env library (Recommended)
+sudo python3 -m venv venv                 <---- to create your own virtual env. (Recommended)
+source venv/bin/activate                  <---- To activate the virtual env. (Recommended)
+cd mars_rover_api/backend                 <---- Go inside to the backend folder.
+pip install -r requirements.txt           <---- To install the needed library to run our unittest. (Please proceed even though some library failed to install.)
+nose2                                     <---- To run all the unittest, expected result is 4 test pass.
 ```
-#### 4. The result must show the total test run and the overall all status of the test.
-
-
-## Instruction on how to use.

@@ -13,8 +13,8 @@ def main():
         e_date = temp_date._date()
         if not e_date == 'Error':
             mars_image = MarsPhoto(e_date, DEFAULT_API_KEY)
-            #mars_image._get()
-            #mars_image._download()
+            mars_image._get()
+            mars_image._download()
         else:
             logger.warning(f'The "{e_date}" is invalid date value. Please verify')
 
@@ -28,4 +28,4 @@ def _banner():
 
 if __name__ == '__main__':
     _banner()
-    #main()
+    main()
