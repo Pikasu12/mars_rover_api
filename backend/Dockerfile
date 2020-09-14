@@ -18,4 +18,4 @@ RUN apk add --no-cache python3 && \
 
 EXPOSE 22
 
-CMD ["python3", "app.py"]
+CMD ["python3", "server.py"]

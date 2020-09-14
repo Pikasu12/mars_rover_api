@@ -2,7 +2,6 @@
 
 ## Overview
 This project will perform download and store images locally from [NASA API website](https://api.nasa.gov/).
-[https://github.com/Pikasu12/mars_rover_api.git](https://github.com/Pikasu12/mars_rover_api.git)
 
 ## Instruction on running the program.
 ### We have 2 options to up and run the program.

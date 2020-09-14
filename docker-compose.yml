@@ -2,7 +2,6 @@ version: '2'
 services:
   mars_rover_manager:
     build: ./backend
-    restart: always
     volumes: 
       - "/etc/localtime:/etc/localtime"
     ports:
