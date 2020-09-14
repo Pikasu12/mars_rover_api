@@ -4,12 +4,19 @@
 This project will perform download and store images locally from [NASA API website](https://api.nasa.gov/).
 
 ## Instruction on running the program.
-### We have 2 options in order for us to up and run the program.
+### We have 2 options to up and run the program.
 
 ### 1. Run and deploy via docker container (Recommended).
 #### This option is only tested using the following linux flavors (Ubuntu, centos).
 #### ***Note:*** *Deployment in other operating systems such as Windows and Mac is not yet tested.*
-#### - First clone the program github repository ()[]
+#### - First clone the program github repository: (https://github.com/Pikasu12/mars_rover_api.git)[https://github.com/Pikasu12/mars_rover_api.git]
+#### - Perform the following command.
+```
+cd mars_rover_api
+docker-compose up
+```
+#### ***Note:*** *If the docker-compose is not yet install you can find the installation process (here.)[https://docs.docker.com/compose/install/]*
+#### - Once the 
 ### 2. Run and deploy locally using your prefered terminal.
 #### This option required two terminal since we use 2 ports, 1 for our frontend written in React JS and 1 for the backend written in Python.
 
