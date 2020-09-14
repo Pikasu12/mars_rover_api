@@ -1,5 +1,5 @@
 import unittest
-from mars_api import MarsPhoto
+from manager.mars_api import MarsPhoto
 from unittest.mock import patch
 
 class MarsPhotoDownloadTestCase(unittest.TestCase):
@@ -16,7 +16,7 @@ class MarsPhotoDownloadTestCase(unittest.TestCase):
                 }]
         }
         
-    @patch('mars_api.MarsPhoto')
+    @patch('manager.mars_api.MarsPhoto')
     def test_getting_image_details(self, mock_get_request):
         mock_mars_photo = mock_get_request()
         mock_mars_photo._request_image.return_value = self.test_api_response
@@ -26,7 +26,7 @@ class MarsPhotoDownloadTestCase(unittest.TestCase):
         self.assertIsNotNone(mock_response)
         self.assertEqual(mock_response, self.test_api_response)
 
-    @patch('mars_api.MarsPhoto')
+    @patch('manager.mars_api.MarsPhoto')
     def test_downloading_image(self, mock_get_request):
         mock_mars_photo = mock_get_request()
         mock_mars_photo._download.return_value = "Downloading images done."

@@ -1,5 +1,5 @@
 import unittest
-from date_formatter import DateFormatter
+from utils.date_formatter import DateFormatter
 
 class DateFormatTestCase(unittest.TestCase):
     def setUp(self):
