@@ -30,14 +30,21 @@ exit
 ```
 git clone https://github.com/Pikasu12/mars_rover_api.git 
 ```
-#### Perform the following command to run the program.
+#### Perform the following command to run the program. (Python package is required to perform the below commands)
 ```
+For ubuntu:
 apt-get install -y python3-venv           <---- To install virtual env library (Recommended)
 sudo python3 -m venv venv                 <---- to create your own virtual env. (Recommended)
 source venv/bin/activate                  <---- To activate the virtual env. (Recommended)
 cd mars_rover_api/backend                 <---- Go inside to the backend folder.
 pip install -r requirements.txt           <---- To install the needed library to run the program.
 python server.py
+
+For Windows:
+cd mars_rover_api/backend
+pip install -r requirements.txt
+python server.py
+cd images                                 <---- To view the downloaded images.
 ```
 #### ***Note:*** *It may take sometime to download all the images. You can view the donwloaded images in this directory 'backend/image/<image_date>/<image_files>'*
 
